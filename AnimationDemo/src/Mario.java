@@ -1,5 +1,4 @@
 
-
 import java.awt.*;
 import java.util.*;
 
@@ -28,16 +27,31 @@ public class Mario extends Sprite {
 	public void act(ArrayList<Shape> obstacles) {
 		// FALL (and stop when a platform is hit)
 		boolean hitObstacle = false;
+<<<<<<< HEAD
 		for(int i =0; i < obstacles.size(); i++) {
 			if(obstacles.get(i).contains(x, y)) {
 				hitObstacle = true;
+=======
+		for (int i = 0; i < obstacles.size(); i++) {
+			if (this.getMaxY() == obstacles.get(i).getBounds2D().getMinY()) {
+				if (this.getMaxX() <= obstacles.get(i).getBounds2D().getMaxX()
+						&& this.getMaxX() >= obstacles.get(i).getBounds2D().getMinX()
+						|| this.getMinX() <= obstacles.get(i).getBounds2D().getMaxX()
+								&& this.getMinX() >= obstacles.get(i).getBounds2D().getMinX())
+					hitObstacle = true;
+>>>>>>> branch 'master' of https://github.com/jpoist504/AnimationDemo.git
 			}
 		}
-		
+
 		if (!hitObstacle)
+<<<<<<< HEAD
 			super.moveByAmount(0, 5);
 		
 		
+=======
+			super.moveByAmount(0, 1);
+
+>>>>>>> branch 'master' of https://github.com/jpoist504/AnimationDemo.git
 	}
 
 }
