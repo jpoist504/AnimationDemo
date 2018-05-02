@@ -17,25 +17,25 @@ public class Mario extends Sprite {
 	// METHODS
 	public void walk(int dir) {
 		// WALK!
-		super.moveByAmount(dir, 0);
+		super.moveByAmount(3 * dir, 0);
 	}
 
 	public void jump() {
 		// JUMP!
-		super.moveByAmount(0, -5);
+		super.moveByAmount(0, -10);
 	}
 
 	public void act(ArrayList<Shape> obstacles) {
 		// FALL (and stop when a platform is hit)
 		boolean hitObstacle = false;
 		for(int i =0; i < obstacles.size(); i++) {
-			if(this.getMaxY() == obstacles.get(i).getBounds2D().getMinY()) {
+			if(obstacles.get(i).contains(x, y)) {
 				hitObstacle = true;
 			}
 		}
 		
 		if (!hitObstacle)
-			super.moveByAmount(0, -5);
+			super.moveByAmount(0, 5);
 		
 		
 	}
