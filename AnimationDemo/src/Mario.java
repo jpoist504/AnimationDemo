@@ -1,5 +1,4 @@
 
-
 import java.awt.*;
 import java.util.*;
 
@@ -28,16 +27,19 @@ public class Mario extends Sprite {
 	public void act(ArrayList<Shape> obstacles) {
 		// FALL (and stop when a platform is hit)
 		boolean hitObstacle = false;
-		for(int i =0; i < obstacles.size(); i++) {
-			if(this.getMaxY() == obstacles.get(i).getBounds2D().getMinY()) {
-				hitObstacle = true;
+		for (int i = 0; i < obstacles.size(); i++) {
+			if (this.getMaxY() == obstacles.get(i).getBounds2D().getMinY()) {
+				if (this.getMaxX() <= obstacles.get(i).getBounds2D().getMaxX()
+						&& this.getMaxX() >= obstacles.get(i).getBounds2D().getMinX()
+						|| this.getMinX() <= obstacles.get(i).getBounds2D().getMaxX()
+								&& this.getMinX() >= obstacles.get(i).getBounds2D().getMinX())
+					hitObstacle = true;
 			}
 		}
-		
+
 		if (!hitObstacle)
-			super.moveByAmount(0, -5);
-		
-		
+			super.moveByAmount(0, 1);
+
 	}
 
 }
