@@ -17,10 +17,12 @@ public class Mario extends Sprite {
 	// METHODS
 	public void walk(int dir) {
 		// WALK!
+		super.moveByAmount(dir, 0);
 	}
 
 	public void jump() {
 		// JUMP!
+		super.moveByAmount(0, -5);
 	}
 
 	public void act(ArrayList<Shape> obstacles) {
