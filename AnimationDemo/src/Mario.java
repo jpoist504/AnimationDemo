@@ -27,7 +27,17 @@ public class Mario extends Sprite {
 
 	public void act(ArrayList<Shape> obstacles) {
 		// FALL (and stop when a platform is hit)
+		boolean hitObstacle = false;
+		for(int i =0; i < obstacles.size(); i++) {
+			if(this.getMaxY() == obstacles.get(i).getBounds2D().getMinY()) {
+				hitObstacle = true;
+			}
+		}
+		
+		if (!hitObstacle)
+			super.moveByAmount(0, -5);
+		
+		
 	}
-
 
 }
